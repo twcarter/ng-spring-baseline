@@ -1,0 +1,34 @@
+/*
+ * Configure testing
+ */
+test {
+    include "com/vzw/bis/**"
+
+    systemProperties << [
+            'foo': 'bar'
+    ]
+    ignoreFailures = true
+}
+
+/*
+ *  Test coverage
+ */
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/reports/coverage"
+    }
+
+    afterEvaluate {
+        classDirectories = files(classDirectories.files.collect {
+            fileTree(dir: it,
+                    include: ['com/vzw/bis/web/controllers/**',
+                              'com/vzw/bis/service/**'
+                    ]
+            )
+        })
+    }
+}
+jacocoTestReport.dependsOn test
+check.dependsOn jacocoTestReport

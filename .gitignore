@@ -1,0 +1,25 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+#
+/src/main/webapp/WEB-INF/frontend
+/.gradle
+/build
+
+/out
+
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+*.sublime-workspace
+
+# misc
+.sass-cache
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
