@@ -8,6 +8,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 
+/**
+ *  IndexServlet will handle the base request and supplement the context as needed.
+ *
+ *
+ */
 @WebServlet(name = "home", urlPatterns = {"/index.jsp", ""}, loadOnStartup = 1)
 public class IndexServlet extends AbstractServlet {
 
