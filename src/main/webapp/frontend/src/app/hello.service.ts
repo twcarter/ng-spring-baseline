@@ -5,8 +5,6 @@ import { Hello } from './hello'
 
 import 'rxjs/add/operator/toPromise';
 
-const hello: Hello = new Hello(1, "hello");
-
 @Injectable()
 export class HelloService {
 
