@@ -13,6 +13,11 @@ import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
 
+/**
+ *  Initialize WebApplication root context and dispatcher servlet
+ *
+ *
+ */
 public class AppInitializer implements WebApplicationInitializer {
 
     @Override
@@ -51,6 +56,6 @@ public class AppInitializer implements WebApplicationInitializer {
         ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher", dispatcherServlet);
         dispatcher.setLoadOnStartup(1);
 
-        dispatcher.addMapping("/rest/*");
+        dispatcher.addMapping("/");
     }
 }

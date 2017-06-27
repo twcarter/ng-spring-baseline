@@ -14,7 +14,7 @@ export class HelloService {
     
     greet(): Promise<Hello> {
 
-        return this.http.get("http://localhost:8080/ng-baseline/rest/hello")
+        return this.http.get("http://localhost:8080/ng-baseline/hello")
             .toPromise()
             .then(response => this.handleResponse(response))
             // .then(response => response.json() as Hello)
@@ -23,7 +23,7 @@ export class HelloService {
 
     greet_jsonp(): Promise<Hello> {
 
-        return this.jsonp.get("http://localhost:8080/ng-baseline/rest/hello?callback=JSONP_CALLBACK")
+        return this.jsonp.get("http://localhost:8080/ng-baseline/hello?callback=JSONP_CALLBACK")
             .toPromise()
             .then(response => this.handleResponse(response))
             .catch(this.handleError);

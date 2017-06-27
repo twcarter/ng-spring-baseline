@@ -6,13 +6,18 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.ResourceUtils;
 
+
+/**
+ *
+ * Scan service layer packages and provide custom beans.
+ *
+ */
 @Configuration
 @ComponentScan(
         basePackages = {
                 "com.vzw.bis.repo",
                 "com.vzw.bis.service",
                 "com.vzw.bis.dao",
-                "com.vzw.bis.config",
                 "com.vzw.bis.util"
         }
 //        basePackageClasses = {RedisConfig.class}

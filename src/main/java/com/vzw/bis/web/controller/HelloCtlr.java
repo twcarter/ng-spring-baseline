@@ -19,6 +19,9 @@ public class HelloCtlr {
 
     private int id = 0;
 
+    public HelloCtlr() {
+        System.out.println(getClass().getSimpleName() + ".constructor");
+    }
 
     @RequestMapping(method = GET)
     public HelloBean sayHello() {

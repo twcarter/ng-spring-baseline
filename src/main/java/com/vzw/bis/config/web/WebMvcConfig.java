@@ -13,12 +13,12 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import java.util.List;
 
+/**
+ * Initialize Spring MVC resource/view handlers, scan web component packages
+ */
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {
-        "com.vzw.bis.web.controller",
-        "com.vzw.bis.web.interceptor"
-})
+@ComponentScan( basePackages = { "com.vzw.bis.web" } )
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(WebMvcConfig.class);
@@ -40,8 +40,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
-//        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+        registry.addResourceHandler("/static/**").addResourceLocations("/WEB-INF/static/");
     }
 
     @Override
