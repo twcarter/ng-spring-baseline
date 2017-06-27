@@ -10,7 +10,10 @@ import org.springframework.util.ResourceUtils;
 @ComponentScan(
         basePackages = {
                 "com.vzw.bis.repo",
-                "com.vzw.bis.service"
+                "com.vzw.bis.service",
+                "com.vzw.bis.dao",
+                "com.vzw.bis.config",
+                "com.vzw.bis.util"
         }
 //        basePackageClasses = {RedisConfig.class}
 )

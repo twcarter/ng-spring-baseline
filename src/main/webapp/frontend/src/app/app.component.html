@@ -1,8 +1,11 @@
 <!--The whole content below can be removed with the new code.-->
 <div >
-  <h1>
-    Welcome to {{title}}!!
-  </h1>
+    <h1>Welcome to {{title}}!!</h1>
+
+    <button (click)="getGreeting()">Get Greeting</button>
+
+
+    <p>{{greeting?.id}} {{greeting?.greeting}}</p>
 </div>
 
 

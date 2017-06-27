@@ -1,5 +1,6 @@
 package com.vzw.bis.config.web;
 
+import com.vzw.bis.web.interceptor.SampleInterceptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -14,20 +15,20 @@ import java.util.List;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"com.vzw.bis.web.controller"})
+@ComponentScan(basePackages = {
+        "com.vzw.bis.web.controller",
+        "com.vzw.bis.web.interceptor"
+})
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     private static final Logger logger = LoggerFactory.getLogger(WebMvcConfig.class);
 
-    public WebMvcConfig() {
-        logger.debug(getClass().getName() + ".constructor");
-    }
-
     @Bean
     public InternalResourceViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
-//        internalResourceViewResolver.setPrefix("/WEB-INF/");
+        internalResourceViewResolver.setPrefix("/");
         internalResourceViewResolver.setSuffix(".jsp");
+
         return internalResourceViewResolver;
     }
 
@@ -39,13 +40,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/frontend/**").addResourceLocations("/WEB-INF/frontend/");
+        registry.addResourceHandler("/static/**").addResourceLocations("/static/");
 //        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/").setViewName("home");
+        registry.addViewController("/").setViewName("index");
     }
 
     @Override
@@ -53,4 +54,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new SampleInterceptor());
+        super.addInterceptors(registry);
+    }
 }

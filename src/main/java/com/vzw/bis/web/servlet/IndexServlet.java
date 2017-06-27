@@ -13,7 +13,7 @@ import java.io.IOException;
  *
  *
  */
-@WebServlet(name = "home", urlPatterns = {"/index.jsp", ""}, loadOnStartup = 1)
+@WebServlet(name = "index", urlPatterns = {"/index.jsp", ""}, loadOnStartup = 1)
 public class IndexServlet extends AbstractServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,15 +29,14 @@ public class IndexServlet extends AbstractServlet {
         }
 
         try {
-            response.setHeader("X-UA-Compatible", "IE=Edge");
+            response.setHeader("Access-Control-Allow-Origin", "*");
         }
         catch(Exception ex) {
             String ctx = request.getContextPath();
             response.sendRedirect(ctx + "/error.jsp");
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/frontend/index.html");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/static/index.html");
         dispatcher.forward(request, response);
-
     }
 }
