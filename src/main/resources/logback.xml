@@ -9,17 +9,17 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>/opt/vzw/bis/log/${logFile:-default.log}</file>
+        <file>${user.home}/${logFile:-default.log}</file>
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} &lt;%X{uid}:%X{rid}:%thread&gt; %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
 
     <appender name="ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/opt/vzw/bis/log/${logFile:-default.log}</file>
+        <file>${logFile:-default.log}</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
-            <fileNamePattern>/opt/vzw/bis/log/${logFile:-default.log}.%d{yyyy-MM-dd}</fileNamePattern>
+            <fileNamePattern>${user.home}/${   logFile:-default.log}.%d{yyyy-MM-dd}</fileNamePattern>
             <!-- keep 30 days' worth of history -->
             <maxHistory>30</maxHistory>
         </rollingPolicy>
@@ -53,7 +53,7 @@
     <logger name="org.springframework.jdbc.core" level="WARN"/>
 
 
-    <logger name="org.springframework" level="WARN"/>
+    <logger name="org.springframework" level="DEBUG"/>
 
     <logger name="com.vzw" level="DEBUG"/>
     <logger name="com.vzw.tms.util.VerboseDebugInterceptor" level="TRACE" />

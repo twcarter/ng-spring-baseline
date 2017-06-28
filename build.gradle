@@ -1,9 +1,9 @@
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'groovy'
-apply plugin: "jacoco"
+//apply plugin: "jacoco"
 
-apply from: 'testing.gradle'
+//apply from: 'testing.gradle'
 
 defaultTasks 'build'
 
@@ -20,7 +20,7 @@ ext.versions = [
         jackson     : "2.5.1",
         spring      : "4.3.9.RELEASE",
         spock       : "1.0-groovy-2.4",
-        guava       : "22.0",
+        guava       : "18.0",
         servlet     : "3.1.0",
         slf4j       : "1.7.+"
 ]
@@ -53,6 +53,8 @@ dependencies {
 
     // Spring Data
     compile 'org.springframework.data:spring-data-jpa:1.5.2.RELEASE'
+    compile 'org.springframework.data:spring-data-mongodb:1.10.4.RELEASE'
+
 
     // JPA Persistence
     compile "commons-dbcp:commons-dbcp:1.2.2"
