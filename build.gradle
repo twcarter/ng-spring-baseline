@@ -52,13 +52,15 @@ dependencies {
     compile "org.springframework:spring-webmvc:${versions.spring}"
 
     // Spring Data
-    compile 'org.springframework.data:spring-data-jpa:1.5.2.RELEASE'
-    compile 'org.springframework.data:spring-data-mongodb:1.10.4.RELEASE'
+
+
+    compile 'org.springframework.data:spring-data-jpa:1.11.+'
+    compile 'org.springframework.data:spring-data-mongodb:1.10.+'
 
 
     // JPA Persistence
     compile "commons-dbcp:commons-dbcp:1.2.2"
-    compile 'org.hibernate:hibernate-entitymanager:4.1.9.Final'
+    compile 'org.hibernate:hibernate-entitymanager:4.1.+'
 
     // JSON
     compile 'com.jayway.jsonpath:json-path:0.8.1'

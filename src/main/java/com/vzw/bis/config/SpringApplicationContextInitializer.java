@@ -3,6 +3,7 @@ package com.vzw.bis.config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContextInitializer;
+import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 public class SpringApplicationContextInitializer
@@ -14,7 +15,9 @@ public class SpringApplicationContextInitializer
 
     @Override
     public void initialize(AnnotationConfigWebApplicationContext applicationContext) {
-        logger.debug(getClass().getName() + "initialize");
+        logger.debug(getClass().getName() + ".initialize");
+        ConfigurableEnvironment appEnvironment = applicationContext.getEnvironment();
+        appEnvironment.addActiveProfile("mongodb");
     }
 
 }
